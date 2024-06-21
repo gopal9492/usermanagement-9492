@@ -11,10 +11,12 @@ This is a Django-based web application for user management. The system allows us
 - Admin Login
 - Admin User Management (View, Edit, Delete Users)
 
-## Prerequisites
 
+## Technologies used
 - Python 3.12
-- Django 
+- Django
+- HTML, CSS
+- PostgresSQL
 
 1. **User Signup:**
     - Navigate to the Signup page (`/signup/`) and fill in the required information.
