@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>User Profile</title>
+</head>
+<body>
+    <div class="container">
+        <h2>User Profile</h2>
+        <table class="profile-table">
+            <tr>
+                <td>Full Name:</td>
+                <td>{{ user.fullname }}</td>
+            </tr>
+            <tr>
+                <td>Username:</td>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>{{ user.gender }}</td>
+            </tr>
+            <tr>
+                <td>Birthdate:</td>
+                <td>{{ user.birthdate }}</td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td>{{ user.city }}</td>
+            </tr>
+        </table>
+        <br><br>
+        <p><a href="{% url 'editprofile' %}">Edit Profile</a></p>
+        <p><a href="{% url 'logout' %}">Logout</a></p>
+    </div>
+</body>
+</html>
+

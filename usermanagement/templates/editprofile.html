@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Edit Profile</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Profile</h2>
+        <form method="post">
+            {% csrf_token %}
+            <table class="edit-profile-table">
+                <tr>
+                    <td><label for="fullname">Full Name:</label></td>
+                    <td><input type="text" id="fullname" name="fullname" value="{{ user.fullname }}" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password:</label></td>
+                    <td><input type="password" id="password" name="password" value="{{ user.password }}" required></td>
+                </tr>
+                <tr>
+                    <td><label for="gender">Gender:</label></td>
+                    <td>
+                        <select id="gender" name="gender" required>
+                            <option value="Male" {% if user.gender == 'Male' %}selected{% endif %}>Male</option>
+                            <option value="Female" {% if user.gender == 'Female' %}selected{% endif %}>Female</option>
+                            <option value="Other" {% if user.gender == 'Other' %}selected{% endif %}>Other</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="birthdate">Birthdate:</label></td>
+                    <td><input type="date" id="birthdate" name="birthdate" value="{{ user.birthdate }}" required></td>
+                </tr>
+                <tr>
+                    <td><label for="city">City:</label></td>
+                    <td><input type="text" id="city" name="city" value="{{ user.city }}" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="form-actions">
+                        <button type="submit">Save</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

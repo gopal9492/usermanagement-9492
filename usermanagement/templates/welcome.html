@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Welcome</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to our User Management System!</h1>
+        <table class="welcome-table">
+            <tr>
+                <td><a href="{% url 'loginpage' %}">Login</a></td>
+            <td><a href="{% url 'signuppage' %}">Signup</a></td></tr>
+            <tr><td><a href="{% url 'login_admin' %}">If you're an admin, click here to login</a></td></tr>
+        </table>
+    </div>
+</body>
+</html>

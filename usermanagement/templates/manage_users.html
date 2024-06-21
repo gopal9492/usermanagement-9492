@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Manage Users</title>
+</head>
+<body>
+<div class="container">
+    <h3>Manage Users</h3>
+    <table class="user-table" border="1px">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Username</th>
+                <th>City</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.fullname }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.city }}</td>
+                <td class="actions">
+                    <a href="{% url 'edit_user' user.id %}">Edit</a>
+                    <form action="{% url 'delete_user' user.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="delete-button">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="{% url 'logout_admin' %}">Logout</a></p>
+</div>
+</body>
+</html>
